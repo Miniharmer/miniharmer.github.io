@@ -1,0 +1,90 @@
+@import "dashboard.css";
+
+body{
+    height: 100%;
+}
+
+#formularioDiv {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #303030;
+    padding: 50px;
+    border-radius: 10px;
+    color:white;
+    gap:30px;
+    justify-content: center;
+    box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.3);
+}
+
+.inputElement{
+    background: #202020;
+    border: 1px solid #505050;
+    color:white;
+    padding: 10px;
+    border-radius: 10px;
+    outline: none;
+}
+
+.labelFormDiv{
+    margin-bottom: 10px;
+}
+
+.processamentoOs {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+#idOsInputProc {
+    box-sizing: border-box;
+    max-width: 100%;
+    width: 280px;
+}
+
+.consultaOsStatus {
+    min-height: 20px;
+    font-size: 13px;
+}
+
+.ordensServicoCards {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.ordemServicoCard {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 14px 42px 14px 14px;
+    border: 1px solid #505050;
+    border-radius: 10px;
+    background: #202020;
+    overflow-wrap: anywhere;
+    max-width: 500px;
+}
+
+.ordemServicoCabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.ordemServicoCampo strong {
+    color: #d0d0d0;
+}
+
+.removerOrdemServico {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    border: 0;
+    background: transparent;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+}

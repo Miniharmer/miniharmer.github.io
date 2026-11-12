@@ -1,0 +1,927 @@
+/* ==========================================================================
+   PORTFÓLIO & DASHBOARD - GUILHERME MADEIRA (MADS)
+   Tema: Retro Vintage / Steampunk & Fantasia (Dourado & Roxo Pastel)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. VARIÁVEIS DE CORES & CONFIGURAÇÕES GERAIS
+   Aqui você pode ajustar as cores de todo o portfólio de forma centralizada.
+   Tons pastéis dominam a interface, com cores fortes usadas apenas para destaque.
+   -------------------------------------------------------------------------- */
+:root {
+    /* Cores de Fundo (Tons suaves e claros entre papiro/ouro claro e névoa lilás) */
+    --bg-base: #f7f4ed;
+    --bg-gradient-start: #fbf9f4;
+    --bg-gradient-middle: #f3ebf8;
+    --bg-gradient-end: #eae2f4;
+
+    /* Tons Pastéis de Roxo / Ametista Suave */
+    --purple-pastel-light: #f5f0fa;
+    --purple-pastel-medium: #e4d5f1;
+    --purple-pastel-border: #cfbbe4;
+    --purple-pastel-text: #6b4c82;
+
+    /* Tons Pastéis de Dourado / Latão Antigo Suave */
+    --gold-pastel-light: #fcf8ee;
+    --gold-pastel-medium: #faeecf;
+    --gold-pastel-border: #e8d5a3;
+    --gold-brass-subtle: #d3be8b;
+
+    /* Cores Fortes para Destaque (Acentos Steampunk & Nobreza Fantástica) */
+    --accent-gold: #c59828;
+    --accent-gold-glow: rgba(197, 152, 40, 0.35);
+    --accent-gold-hover: #b0851e;
+    
+    --accent-purple: #5c2d82;
+    --accent-purple-glow: rgba(92, 45, 130, 0.25);
+    --accent-purple-hover: #481f69;
+
+    /* Texto & Legibilidade */
+    --text-primary: #2a2033;       /* Quase preto com leve tom de ameixa escuro */
+    --text-secondary: #5f546c;     /* Roxo acinzentado suave para descrições */
+    --text-muted: #887d95;         /* Detalhes pequenos e datas */
+
+    /* Superfícies dos Cards e Elementos */
+    --card-bg: rgba(255, 255, 255, 0.82);
+    --card-bg-hover: rgba(255, 255, 255, 0.96);
+    --card-border: rgba(197, 152, 40, 0.4);
+    --card-border-hover: rgba(197, 152, 40, 0.85);
+
+    /* Sombras Elegantes */
+    --shadow-subtle: 0 4px 20px rgba(92, 45, 130, 0.06);
+    --shadow-card: 0 8px 30px rgba(78, 35, 110, 0.08), 0 2px 8px rgba(197, 152, 40, 0.08);
+    --shadow-hover: 0 16px 40px rgba(92, 45, 130, 0.16), 0 0 24px rgba(197, 152, 40, 0.25);
+
+    /* Tipografia */
+    --font-primary: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-handwriting: 'Satisfy', cursive;
+    --font-vintage: 'Cinzel', serif;
+
+    /* Transições Suaves */
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* --------------------------------------------------------------------------
+   2. RESET & ESTILOS BASE
+   -------------------------------------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-primary);
+    background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-middle) 50%, var(--bg-gradient-end) 100%);
+    color: var(--text-primary);
+    min-height: 100vh;
+    line-height: 1.6;
+    position: relative;
+    overflow-x: hidden;
+    padding-bottom: 3rem;
+}
+
+/* --------------------------------------------------------------------------
+   3. ELEMENTOS DE AMBIENTAÇÃO RETRO-FANTASIA / STEAMPUNK
+   Engrenagens de latão sutis, texturas clássicas e partículas suaves ao fundo.
+   -------------------------------------------------------------------------- */
+.steampunk-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+    opacity: 0.45;
+}
+
+/* Engrenagem decorativa no canto superior direito */
+.steampunk-gear-1 {
+    position: absolute;
+    top: -90px;
+    right: -90px;
+    width: 320px;
+    height: 320px;
+    color: var(--gold-brass-subtle);
+    animation: rotateGearClockwise 60s linear infinite;
+    transform-origin: center;
+}
+
+/* Engrenagem decorativa no canto inferior esquerdo */
+.steampunk-gear-2 {
+    position: absolute;
+    bottom: -100px;
+    left: -100px;
+    width: 360px;
+    height: 360px;
+    color: var(--purple-pastel-border);
+    animation: rotateGearCounter 80s linear infinite;
+    transform-origin: center;
+}
+
+/* Pequena engrenagem conectada */
+.steampunk-gear-3 {
+    position: absolute;
+    top: 35%;
+    left: 4%;
+    width: 120px;
+    height: 120px;
+    color: var(--gold-pastel-border);
+    animation: rotateGearClockwise 45s linear infinite;
+    opacity: 0.35;
+}
+
+@keyframes rotateGearClockwise {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes rotateGearCounter {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(-360deg); }
+}
+
+/* Moldura fina vintage ao redor de toda a página */
+.vintage-frame {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border: 1px solid rgba(197, 152, 40, 0.22);
+    pointer-events: none;
+    z-index: 99;
+    box-shadow: inset 0 0 15px rgba(197, 152, 40, 0.05);
+}
+
+.vintage-frame::before {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    right: 4px;
+    bottom: 4px;
+    border: 1px dashed rgba(92, 45, 130, 0.15);
+}
+
+/* --------------------------------------------------------------------------
+   4. ESTRUTURA PRINCIPAL (CONTAINER)
+   -------------------------------------------------------------------------- */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* --------------------------------------------------------------------------
+   5. CABEÇALHO / HERO (PERFIL & APRESENTAÇÃO)
+   -------------------------------------------------------------------------- */
+.hero-header {
+    background: var(--card-bg);
+    border: 1px solid var(--gold-pastel-border);
+    border-radius: 18px;
+    padding: 2.5rem;
+    box-shadow: var(--shadow-card);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    margin-bottom: 2.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Linha superior decorativa de ouro */
+.hero-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--purple-pastel-border), var(--accent-gold), var(--purple-pastel-border));
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.25rem;
+}
+
+/* Selo / Avatar Steampunk com as Iniciais "Mads" */
+.avatar-steampunk {
+    position: relative;
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold-pastel-medium) 0%, var(--purple-pastel-medium) 100%);
+    border: 3px solid var(--accent-gold);
+    box-shadow: 0 0 20px var(--accent-gold-glow), inset 0 0 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--accent-purple);
+    transition: var(--transition);
+}
+
+.avatar-steampunk:hover {
+    transform: rotate(15deg) scale(1.06);
+    box-shadow: 0 0 30px var(--accent-gold-glow);
+}
+
+.avatar-gear-ring {
+    position: absolute;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    border: 1px dashed var(--accent-gold);
+    animation: rotateGearClockwise 30s linear infinite;
+    pointer-events: none;
+}
+
+/* Título com mistura de estilos: Poppins + Caligrafia Feita à Mão */
+.hero-title-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-subtitle-top {
+    font-family: var(--font-vintage);
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.hero-main-title {
+    font-size: 2.3rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.2;
+}
+
+/* O toque especial de letra de mão vintage */
+.hero-handwriting {
+    font-family: var(--font-handwriting);
+    font-size: 2.8rem;
+    font-weight: normal;
+    color: var(--accent-purple);
+    margin-left: 0.4rem;
+    text-shadow: 1px 2px 4px var(--accent-purple-glow);
+    display: inline-block;
+}
+
+/* Descrição e objetivo do portfólio */
+.hero-bio {
+    max-width: 780px;
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.hero-bio strong {
+    color: var(--accent-purple);
+    font-weight: 600;
+}
+
+/* Badges e tags do perfil */
+.hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-top: 0.25rem;
+}
+
+.hero-badge {
+    background: var(--purple-pastel-light);
+    border: 1px solid var(--purple-pastel-border);
+    color: var(--purple-pastel-text);
+    padding: 0.35rem 0.9rem;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.hero-badge i {
+    color: var(--accent-gold);
+}
+
+/* --------------------------------------------------------------------------
+   6. BOTÕES DE REDES SOCIAIS & CONTATO (GITHUB, LINKEDIN)
+   -------------------------------------------------------------------------- */
+.social-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.7rem 1.4rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Botão GitHub */
+.social-btn.github {
+    background: #2a2233;
+    color: #f7f3fb;
+    border: 1px solid var(--accent-purple);
+    box-shadow: 0 4px 15px rgba(42, 34, 51, 0.2);
+}
+
+.social-btn.github:hover {
+    background: #3c2f49;
+    color: #ffd768;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(92, 45, 130, 0.3);
+}
+
+/* Botão LinkedIn */
+.social-btn.linkedin {
+    background: linear-gradient(135deg, #0a66c2 0%, #004182 100%);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 15px rgba(10, 102, 194, 0.25);
+}
+
+.social-btn.linkedin:hover {
+    background: linear-gradient(135deg, #0077b5 0%, #00558f 100%);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(10, 102, 194, 0.4);
+}
+
+/* Botão Copiar Contato / Status */
+.social-btn.status {
+    background: var(--gold-pastel-light);
+    color: var(--accent-gold-hover);
+    border: 1px solid var(--accent-gold);
+}
+
+.social-btn.status:hover {
+    background: var(--gold-pastel-medium);
+    transform: translateY(-2px);
+}
+
+/* --------------------------------------------------------------------------
+   7. BARRA DE CONTROLE DO DASHBOARD (BUSCA & FILTROS)
+   -------------------------------------------------------------------------- */
+.dashboard-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.2rem;
+    margin-bottom: 2rem;
+    padding: 1.2rem 1.6rem;
+    background: var(--card-bg);
+    border: 1px solid var(--gold-pastel-border);
+    border-radius: 14px;
+    box-shadow: var(--shadow-subtle);
+    backdrop-filter: blur(8px);
+}
+
+/* Campo de Pesquisa Rápida */
+.search-wrapper {
+    position: relative;
+    flex: 1;
+    min-width: 260px;
+    max-width: 450px;
+}
+
+.search-wrapper i {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent-gold);
+    font-size: 0.95rem;
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.65rem 1rem 0.65rem 2.6rem;
+    border: 1px solid var(--purple-pastel-border);
+    border-radius: 8px;
+    font-family: var(--font-primary);
+    font-size: 0.9rem;
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--text-primary);
+    transition: var(--transition);
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--accent-gold);
+    box-shadow: 0 0 0 3px var(--accent-gold-glow);
+}
+
+/* Filtros por Categoria */
+.filter-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.filter-btn {
+    background: var(--purple-pastel-light);
+    border: 1px solid var(--purple-pastel-border);
+    color: var(--text-secondary);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-family: var(--font-primary);
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.filter-btn:hover {
+    background: var(--purple-pastel-medium);
+    color: var(--accent-purple);
+}
+
+.filter-btn.active {
+    background: var(--accent-purple);
+    color: #ffffff;
+    border-color: var(--accent-purple);
+    box-shadow: 0 2px 10px var(--accent-purple-glow);
+}
+
+/* Contador de Projetos */
+.projects-counter {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.projects-counter strong {
+    color: var(--accent-gold);
+    font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   8. CABEÇALHO DA SEÇÃO DE PROJETOS
+   -------------------------------------------------------------------------- */
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--gold-pastel-border);
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.section-title i {
+    color: var(--accent-gold);
+}
+
+.section-hint {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+/* --------------------------------------------------------------------------
+   9. GRID DE CARDS DE PROJETOS
+   Projetado para ser totalmente responsivo e fácil de expandir.
+   -------------------------------------------------------------------------- */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.75rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Card Individual de Projeto (Visual Alquímico / Steampunk) */
+.project-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 14px;
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: var(--shadow-card);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+/* Cantos ornamentais clássicos estilo moldura */
+.project-card::before,
+.project-card::after {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    pointer-events: none;
+    border-color: var(--accent-gold);
+    border-style: solid;
+    transition: var(--transition);
+}
+
+.project-card::before {
+    top: 6px;
+    left: 6px;
+    border-width: 2px 0 0 2px;
+}
+
+.project-card::after {
+    bottom: 6px;
+    right: 6px;
+    border-width: 0 2px 2px 0;
+}
+
+/* Cantos complementares */
+.card-corners-extra {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.card-corners-extra::before,
+.card-corners-extra::after {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-color: var(--accent-gold);
+    border-style: solid;
+    transition: var(--transition);
+}
+
+.card-corners-extra::before {
+    top: 6px;
+    right: 6px;
+    border-width: 2px 2px 0 0;
+}
+
+.card-corners-extra::after {
+    bottom: 6px;
+    left: 6px;
+    border-width: 0 0 2px 2px;
+}
+
+/* Efeito Hover do Card */
+.project-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--card-border-hover);
+    box-shadow: var(--shadow-hover);
+    background: var(--card-bg-hover);
+}
+
+.project-card:hover::before,
+.project-card:hover::after,
+.project-card:hover .card-corners-extra::before,
+.project-card:hover .card-corners-extra::after {
+    width: 20px;
+    height: 20px;
+    border-color: var(--accent-purple);
+}
+
+/* Cabeçalho do Card (Ícone e Badge de Categoria) */
+.card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+}
+
+.card-icon-wrapper {
+    width: 54px;
+    height: 54px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--gold-pastel-light) 0%, var(--purple-pastel-light) 100%);
+    border: 1px solid var(--gold-brass-subtle);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    color: var(--accent-purple);
+    box-shadow: 0 4px 12px rgba(197, 152, 40, 0.15);
+    transition: var(--transition);
+}
+
+.project-card:hover .card-icon-wrapper {
+    transform: rotate(-8deg) scale(1.08);
+    background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-purple) 100%);
+    color: #ffffff;
+    box-shadow: 0 6px 18px var(--accent-gold-glow);
+}
+
+.card-category-badge {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0.3rem 0.75rem;
+    border-radius: 16px;
+    background: var(--purple-pastel-light);
+    color: var(--accent-purple);
+    border: 1px solid var(--purple-pastel-border);
+}
+
+/* Corpo do Card (Título, Descrição e Tags) */
+.card-content {
+    flex-grow: 1;
+    margin-bottom: 1.5rem;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.project-card:hover .card-title {
+    color: var(--accent-purple);
+}
+
+.card-description {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 1.55;
+    margin-bottom: 1rem;
+}
+
+.card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.card-tag {
+    font-size: 0.75rem;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid var(--gold-pastel-border);
+    color: var(--text-secondary);
+    padding: 0.2rem 0.55rem;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+/* Rodapé do Card (Botão de Ação / Link Direto) */
+.card-action {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-top: 1rem;
+    border-top: 1px dashed var(--gold-pastel-border);
+}
+
+.card-link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.65rem 1.25rem;
+    background: linear-gradient(135deg, var(--gold-pastel-light) 0%, var(--purple-pastel-light) 100%);
+    border: 1px solid var(--accent-gold);
+    border-radius: 8px;
+    color: var(--accent-purple);
+    font-weight: 600;
+    font-size: 0.88rem;
+    text-decoration: none;
+    transition: var(--transition);
+    box-shadow: 0 2px 6px rgba(197, 152, 40, 0.1);
+}
+
+.card-link-btn i {
+    font-size: 0.8rem;
+    transition: transform 0.25s ease;
+}
+
+.card-link-btn:hover {
+    background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-purple) 100%);
+    color: #ffffff;
+    border-color: transparent;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px var(--accent-purple-glow);
+}
+
+.card-link-btn:hover i {
+    transform: translate(3px, -3px);
+}
+
+/* --------------------------------------------------------------------------
+   10. CARD CONVITE PARA NOVO PROJETO (DASHBOARD SLOT)
+   Mostra visualmente que o dashboard é expansível
+   -------------------------------------------------------------------------- */
+.project-card.new-slot-card {
+    border: 2px dashed var(--purple-pastel-border);
+    background: rgba(255, 255, 255, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 250px;
+    cursor: default;
+}
+
+.new-slot-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+}
+
+.new-slot-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--purple-pastel-light);
+    border: 1px dashed var(--accent-purple);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-purple);
+    font-size: 1.2rem;
+}
+
+.new-slot-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.new-slot-text {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    max-width: 250px;
+}
+
+/* --------------------------------------------------------------------------
+   11. MENSAGEM DE "NENHUM PROJETO ENCONTRADO" NO FILTRO
+   -------------------------------------------------------------------------- */
+.no-results {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 3rem 1rem;
+    background: var(--card-bg);
+    border: 1px dashed var(--gold-pastel-border);
+    border-radius: 12px;
+    display: none;
+}
+
+.no-results i {
+    font-size: 2.5rem;
+    color: var(--gold-brass-subtle);
+    margin-bottom: 0.8rem;
+}
+
+.no-results h4 {
+    font-size: 1.15rem;
+    color: var(--text-primary);
+    margin-bottom: 0.4rem;
+}
+
+.no-results p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   12. RODAPÉ (FOOTER VINTAGE)
+   -------------------------------------------------------------------------- */
+.dashboard-footer {
+    margin-top: 3.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--gold-pastel-border);
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer-signature {
+    font-family: var(--font-handwriting);
+    font-size: 1.8rem;
+    color: var(--accent-purple);
+}
+
+.footer-text {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+}
+
+.footer-text i {
+    color: #d15656;
+}
+
+/* Toast de Notificação (ex: ao copiar email ou link) */
+.toast-notice {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--text-primary);
+    color: #ffffff;
+    padding: 0.8rem 1.4rem;
+    border-radius: 10px;
+    border-left: 4px solid var(--accent-gold);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    font-size: 0.9rem;
+    z-index: 1000;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: var(--transition);
+    pointer-events: none;
+}
+
+.toast-notice.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   13. RESPONSIVIDADE
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    .container {
+        padding: 1.5rem 1rem;
+    }
+
+    .hero-header {
+        padding: 1.75rem 1.25rem;
+    }
+
+    .hero-main-title {
+        font-size: 1.8rem;
+    }
+
+    .hero-handwriting {
+        font-size: 2.2rem;
+    }
+
+    .dashboard-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-wrapper {
+        max-width: 100%;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .steampunk-gear-1,
+    .steampunk-gear-2 {
+        opacity: 0.2;
+    }
+}
+

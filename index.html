@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Título da Página & SEO para Recrutadores -->
+    <title>Mads | Portfólio & Laboratório de Aplicações</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta name="description"
+        content="Portfólio interativo de Guilherme Madeira (Mads). Hub e dashboard de projetos de teste, aplicações web, templates e demonstrações técnicas.">
+    <meta name="author" content="Guilherme Madeira (Mads)">
+
+    <!-- Open Graph (Pré-visualização ao compartilhar no LinkedIn, WhatsApp, etc.) -->
+    <meta property="og:title" content="Mads | Portfólio & Hub de Projetos">
+    <meta property="og:description"
+        content="Dashboard de aplicações e templates desenvolvidos por Guilherme Madeira (Mads).">
+    <meta property="og:type" content="website">
+
+    <!-- Google Fonts: Poppins (Texto limpo/moderno), Satisfy (Letra de mão elegante) e Cinzel (Toque vintage/clássico) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&family=Satisfy&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome Icons (Ícones para projetos, redes sociais e interface) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Folha de Estilos Principal (Pastel Steampunk / Dourado & Roxo) -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+    <!-- ======================================================================
+         AMBIENTAÇÃO VINTAGE / STEAMPUNK DE FUNDO (Engrenagens sutis e moldura)
+         ====================================================================== -->
+    <div class="vintage-frame" aria-hidden="true"></div>
+
+    <div class="steampunk-bg" aria-hidden="true">
+        <!-- Engrenagem SVG decorativa superior direita -->
+        <svg class="steampunk-gear-1" viewBox="0 0 100 100" fill="currentColor">
+            <path
+                d="M50,15 A35,35 0 1,0 50,85 A35,35 0 1,0 50,15 Z M50,30 A20,20 0 1,1 50,70 A20,20 0 1,1 50,30 Z M46,2 L54,2 L55,14 A36,36 0 0,1 63,17 L72,8 L78,14 L71,23 A36,36 0 0,1 77,30 L89,28 L91,36 L81,42 A36,36 0 0,1 81,50 L91,56 L89,64 L77,62 A36,36 0 0,1 71,69 L78,78 L72,84 L63,75 A36,36 0 0,1 55,78 L54,90 L46,90 L45,78 A36,36 0 0,1 37,75 L28,84 L22,78 L29,69 A36,36 0 0,1 23,62 L11,64 L9,56 L19,50 A36,36 0 0,1 19,42 L9,36 L11,28 L23,30 A36,36 0 0,1 29,23 L22,14 L28,8 L37,17 A36,36 0 0,1 45,14 Z" />
+        </svg>
+
+        <!-- Engrenagem SVG decorativa inferior esquerda -->
+        <svg class="steampunk-gear-2" viewBox="0 0 100 100" fill="currentColor">
+            <path
+                d="M50,18 A32,32 0 1,0 50,82 A32,32 0 1,0 50,18 Z M50,32 A18,18 0 1,1 50,68 A18,18 0 1,1 50,32 Z M47,4 L53,4 L54,15 A33,33 0 0,1 62,18 L70,10 L75,15 L68,23 A33,33 0 0,1 74,30 L85,29 L87,36 L78,42 A33,33 0 0,1 78,50 L87,56 L85,63 L74,62 A33,33 0 0,1 68,69 L75,77 L70,82 L62,74 A33,33 0 0,1 54,77 L53,88 L47,88 L46,77 A33,33 0 0,1 38,74 L30,82 L25,77 L32,69 A33,33 0 0,1 26,62 L15,63 L13,56 L22,50 A33,33 0 0,1 22,42 L13,36 L15,29 L26,30 A33,33 0 0,1 32,23 L25,15 L30,10 L38,18 A33,33 0 0,1 46,15 Z" />
+        </svg>
+
+        <!-- Engrenagem lateral sutil -->
+        <svg class="steampunk-gear-3" viewBox="0 0 100 100" fill="currentColor">
+            <circle cx="50" cy="50" r="30" stroke="currentColor" stroke-width="4" fill="none" />
+            <circle cx="50" cy="50" r="10" fill="currentColor" />
+            <line x1="50" y1="5" x2="50" y2="95" stroke="currentColor" stroke-width="4" />
+            <line x1="5" y1="50" x2="95" y2="50" stroke="currentColor" stroke-width="4" />
+        </svg>
+    </div>
+
+    <!-- ======================================================================
+         CONTEÚDO PRINCIPAL (CONTAINER)
+         ====================================================================== -->
+    <main class="container">
+
+        <!-- ------------------------------------------------------------------
+             SEÇÃO 1: CABEÇALHO / HERO (APRESENTAÇÃO & PERFIL DO MADS)
+             ------------------------------------------------------------------ -->
+        <header class="hero-header">
+            <div class="hero-content">
+
+                <!-- Avatar Temático com Selo de Latão Alquímico -->
+                <div class="avatar-steampunk" title="Guilherme Madeira (Mads)">
+                    <div class="avatar-gear-ring"></div>
+                    <i class="fa-solid fa-compass-drafting"></i>
+                </div>
+
+                <!-- Título com Poppins + Caligrafia Feita à Mão -->
+                <div class="hero-title-group">
+                    <span class="hero-subtitle-top">Portifólio & Laboratório Web</span>
+                    <h1 class="hero-main-title">
+                        Guilherme Madeira <span class="hero-handwriting">"Mads"</span>
+                    </h1>
+                </div>
+
+                <!-- Descrição e Objetivo do Portfólio (Focado em Recrutadores & Contratações) -->
+                <p class="hero-bio">
+                    Seja bem-vindo ao meu <strong>portfólio e dashboard interativo</strong>. Este espaço funciona como
+                    uma central de projetos,
+                    onde reúno demonstrações práticas, aplicações completas, templates arquiteturais e experimentos de
+                    engenharia de software
+                    prontos para teste.
+                </p>
+
+                <!-- Badges de Especialidades -->
+                <div class="hero-badges">
+                    <span class="hero-badge"><i class="fa-solid fa-code"></i> Frontend & Full Stack</span>
+                    <span class="hero-badge"><i class="fa-brands fa-js"></i> JavaScript & Modern Web</span>
+                    <span class="hero-badge"><i class="fa-solid fa-cubes"></i> Arquitetura Modular</span>
+                    <span class="hero-badge"><i class="fa-solid fa-bolt"></i> Interfaces Interativas</span>
+                </div>
+
+                <!-- Botões de Acesso Rápido às Redes Sociais (GitHub e LinkedIn) -->
+                <nav class="social-links" aria-label="Links sociais e profissionais">
+                    <!-- Link do GitHub com usuário Miniharmer -->
+                    <a href="https://github.com/Miniharmer" target="_blank" rel="noopener noreferrer"
+                        class="social-btn github" title="Acessar perfil no GitHub de Guilherme Madeira">
+                        <i class="fa-brands fa-github"></i>
+                        <span>GitHub / Miniharmer</span>
+                    </a>
+
+                    <!-- Link do LinkedIn com usuário in/miniharmer -->
+                    <a href="https://www.linkedin.com/in/miniharmer" target="_blank" rel="noopener noreferrer"
+                        class="social-btn linkedin" title="Conectar no LinkedIn de Guilherme Madeira">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                        <span>LinkedIn / in/miniharmer</span>
+                    </a>
+
+                    <!-- Botão de Notificação de Disponibilidade -->
+                    <button type="button" class="social-btn status"
+                        onclick="window.showToast('📧 Disponível para novas oportunidades e desafios!')"
+                        title="Status Profissional">
+                        <i class="fa-solid fa-sparkles"></i>
+                        <span>Disponível para Projetos e Serviços</span>
+                    </button>
+                </nav>
+
+            </div>
+        </header>
+
+        <!-- ------------------------------------------------------------------
+             SEÇÃO 2: CONTROLES DO DASHBOARD (BUSCA & FILTROS DE PROJETOS)
+             ------------------------------------------------------------------ -->
+        <section class="dashboard-controls" aria-label="Filtros e busca do dashboard">
+            <!-- Barra de Busca Instantânea -->
+            <div class="search-wrapper">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="projectSearch" class="search-input"
+                    placeholder="Pesquisar projetos, tecnologias ou tags..." aria-label="Buscar projetos no dashboard">
+            </div>
+
+            <!-- Botões de Filtro por Categoria -->
+            <div class="filter-group">
+                <button type="button" class="filter-btn active" data-filter="all">
+                    <i class="fa-solid fa-layer-group"></i> Todos
+                </button>
+                <button type="button" class="filter-btn" data-filter="app">
+                    <i class="fa-solid fa-laptop-code"></i> Aplicações
+                </button>
+                <button type="button" class="filter-btn" data-filter="template">
+                    <i class="fa-solid fa-shapes"></i> Templates
+                </button>
+                <button type="button" class="filter-btn" data-filter="experimento">
+                    <i class="fa-solid fa-flask"></i> Experimentos
+                </button>
+            </div>
+
+            <!-- Contador Dinâmico de Projetos Exibidos -->
+            <div class="projects-counter">
+                Mostrando <strong id="visibleProjectsCount">1</strong> de <strong id="totalProjectsCount">1</strong>
+                projetos
+            </div>
+        </section>
+
+        <!-- ------------------------------------------------------------------
+             SEÇÃO 3: GRADE DE PROJETOS (DASHBOARD HUB)
+             ------------------------------------------------------------------ -->
+        <section aria-labelledby="sectionProjectsTitle">
+            <div class="section-header">
+                <h2 id="sectionProjectsTitle" class="section-title">
+                    <i class="fa-solid fa-boxes-stacked"></i> Aplicações & Projetos Disponíveis
+                </h2>
+                <span class="section-hint">Clique no card para abrir a demonstração ao vivo</span>
+            </div>
+
+            <div class="projects-grid" id="projectsGrid">
+
+                <!-- ==========================================================
+                     PROJETO 1: TRELLOMADS DEMO
+                     Demonstração do Sistema Kanban inspirado no Trello
+                     ========================================================== -->
+                <article class="project-card" data-category="app">
+                    <!-- Cantos ornamentais clássicos estilo vintage -->
+                    <div class="card-corners-extra" aria-hidden="true"></div>
+
+                    <!-- Cabeçalho do Card (Ícone temático e Badge) -->
+                    <div class="card-top">
+                        <div class="card-icon-wrapper" title="Ícone Kanban / TrelloMads">
+                            <i class="fa-solid fa-table-columns"></i>
+                        </div>
+                        <span class="card-category-badge">Aplicação</span>
+                    </div>
+
+                    <!-- Conteúdo do Card (Título, Descrição e Tags) -->
+                    <div class="card-content">
+                        <h3 class="card-title">
+                            TrelloMads Demo
+                            <i class="fa-solid fa-circle-check" style="color: var(--accent-gold); font-size: 0.9rem;"
+                                title="Projeto Verificado & Pronto"></i>
+                        </h3>
+                        <p class="card-description">
+                            Demonstração interativa de um sistema Kanban completo inspirado no Trello.
+                            Permite organização de quadros, colunas e cartões com persistência dinâmica de dados e
+                            interface fluida.
+                        </p>
+                        <div class="card-tags">
+                            <span class="card-tag">Kanban</span>
+                            <span class="card-tag">JavaScript Puro</span>
+                            <span class="card-tag">Single Page App</span>
+                            <span class="card-tag">LocalStorage</span>
+                            <span class="card-tag">Gestão Visual</span>
+                        </div>
+                    </div>
+
+                    <!-- Ação do Card (Link de redirecionamento para o projeto) -->
+                    <div class="card-action">
+                        <!-- O href aponta diretamente para a pasta do projeto trellomads-demo -->
+                        <a href="trellomads-demo/index.html" class="card-link-btn"
+                            title="Abrir demonstração do TrelloMads">
+                            <span>Acessar Demonstração</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </article>
+
+
+                <!-- ==========================================================
+                     🛠️ GUIA PARA O MADS: COMO ADICIONAR UM NOVO PROJETO AQUI!
+                     ==========================================================
+                     Quando você criar ou colar uma nova pasta de projeto aqui dentro
+                     (por exemplo: "calculadora-retro" ou "ecommerce-template"),
+                     basta COPIAR o modelo abaixo, descomentar e alterar:
+                     
+                     1. data-category="app" (ou "template", ou "experimento")
+                     2. O ícone do Font Awesome (ex: fa-calculator, fa-cart-shopping)
+                     3. O título e a descrição
+                     4. As tags
+                     5. O href="./SUA-NOVA-PASTA/index.html"
+                     
+                     O Javascript e o CSS vão reconhecer automaticamente!
+                     ========================================================== -->
+
+                <!-- [EXEMPLO DE TEMPLATE PRONTO PARA COPIAR E COLAR]:
+                <article class="project-card" data-category="app">
+                    <div class="card-corners-extra" aria-hidden="true"></div>
+                    <div class="card-top">
+                        <div class="card-icon-wrapper">
+                            <i class="fa-solid fa-rocket"></i>
+                        </div>
+                        <span class="card-category-badge">Aplicação</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Nome do Seu Novo Projeto</h3>
+                        <p class="card-description">
+                            Escreva aqui um breve resumo do que a aplicação faz, os desafios resolvidos e a utilidade.
+                        </p>
+                        <div class="card-tags">
+                            <span class="card-tag">JavaScript</span>
+                            <span class="card-tag">HTML5/CSS3</span>
+                        </div>
+                    </div>
+                    <div class="card-action">
+                        <a href="./sua-nova-pasta/index.html" class="card-link-btn">
+                            <span>Acessar Demonstração</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </article>
+                -->
+
+                <!-- Card Indicativo de Expansão Contínua (Slot Placeholder) -->
+                <div class="project-card new-slot-card" aria-label="Espaço reservado para próximos projetos">
+                    <div class="new-slot-content">
+                        <div class="new-slot-icon">
+                            <i class="fa-solid fa-plus"></i>
+                        </div>
+                        <h4 class="new-slot-title">Novos Projetos em Breve</h4>
+                        <p class="new-slot-text">
+                            Novas aplicações, templates e protótipos em fase de acabamento e em breve disponíveis no
+                            dashboard.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Mensagem exibida caso a busca não retorne nada -->
+                <div class="no-results" id="noResultsMessage">
+                    <i class="fa-solid fa-compass"></i>
+                    <h4>Nenhum projeto encontrado</h4>
+                    <p>Tente buscar por outro termo, tecnologia ou selecione a categoria "Todos".</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ------------------------------------------------------------------
+             SEÇÃO 4: RODAPÉ (CRÉDITOS & ASSINATURA)
+             ------------------------------------------------------------------ -->
+        <footer class="dashboard-footer">
+            <div class="footer-content">
+                <span class="footer-signature">Guilherme Madeira</span>
+                <p class="footer-text">
+                    Desenvolvido com carinho por <strong>Mads</strong> • Hospedado via <strong>GitHub Pages</strong><br>
+                    <img src="favicon.ico" alt="Favicon" width="100" height="100" title="Guilherme Madeira">
+                </p>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- Script Principal do Dashboard (Filtros, Busca e Efeitos) -->
+    <script src="./js/main.js"></script>
+</body>
+
+</html>

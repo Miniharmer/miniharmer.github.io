@@ -1,0 +1,900 @@
+@import "dashboard.css";
+
+
+
+#container-coluna {
+
+    position: grid;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+
+}
+
+#container-content {
+    position: absolute;
+    width: 100%;
+    height: calc(100% - 80px);
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #225580;
+    margin-top: 80px;
+    display: flex;
+    overflow-x: auto;
+    align-items: flex-start;
+    /* ← ESSA LINHA */
+    gap: 10px;
+}
+
+.opacidade1 {
+    opacity: 1;
+    display: flex;
+    transition: opacity 0.3s ease;
+}
+
+.opacidade0 {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+#fundoLS {
+    /* display: grid; */
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: #202020;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+}
+
+#iconLS {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #ccc;
+    border-top: 5px solid #007bff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+#smfundoLS {
+    /* display: grid; */
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+}
+
+#smiconLS {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #ccc;
+    border-top: 5px solid #007bff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+.colunaDiv {
+    /* height:max-content; */
+
+    background-color: #101010;
+    min-width: 300px;
+    max-width: 300px;
+    border-radius: 10px;
+    /* min-height: 0; */
+    max-height: 100%;
+    flex-direction: column;
+    display: flex;
+
+}
+
+.colunaTitulo {
+    /* padding: 10px; */
+    color: white;
+    font-size: 20px;
+    overflow-wrap: break-word;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.colunaCardContent {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: auto;
+    /* height: 500px; */
+    /* min-height: 0 */
+    max-height: 100%;
+}
+
+.cardDiv {
+    width: 100%;
+    background-color: #303030;
+    min-height: 50px;
+    border-radius: 10px;
+    gap: 10px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.cardTitulo {
+    color: white;
+    font-size: 18px;
+    padding: 0 10px 10px 10px;
+
+}
+
+
+#divBtnAddColuna {
+    display: flex;
+    height: 30px;
+    justify-content: center;
+    background-color: transparent;
+    min-width: 300px;
+    /* border-radius: 10px; */
+}
+
+#btnAddColuna {
+    opacity: 0.8;
+    width: 100%;
+    height: 100%;
+    background-color: #454545;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: opacity 0.3s ease;
+}
+
+#btnAddColuna:hover {
+    opacity: 1;
+}
+
+.botaoAddCard {
+    opacity: 0.5;
+    width: 100%;
+    height: 30px;
+    background-color: #454545;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 0 0 10px 10px;
+    transition: opacity 0.3s ease;
+}
+
+.botaoAddCard:hover {
+    opacity: 1;
+}
+
+.divEtiquetaContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding: 5px;
+}
+
+.divEtiqueta {
+    font-weight: bold;
+    align-content: center;
+    font-size: 12px;
+    padding: 5px;
+    color: white;
+    width: max-content;
+    /* height: 20px; */
+    border-radius: 5px;
+}
+
+.divCardDescricao {
+    display: flex;
+    padding: 7px 10px 5px 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dragandoTela {
+    user-select: none;
+    cursor: grabbing;
+}
+
+.colunaHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px
+}
+
+.tresPontosDiv {
+    opacity: 0;
+    transition: all 0.1s ease;
+    color: white;
+    border-radius: 5px;
+    justify-content: center;
+    display: grid;
+    position: relative;
+}
+
+.colunaHeader:hover .tresPontosDiv {
+    opacity: 1;
+}
+
+.divModalCard {
+    width: 900px;
+    height: 740px;
+    background-color: #101010;
+    border-radius: 10px;
+    margin-top: 85px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+}
+
+
+.divModalCardContainer {
+    display: grid;
+    justify-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 90;
+}
+
+.modalCardTitulo {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 36px;
+    text-decoration: none;
+
+    /* Trava o redimensionamento manual pelo usuário */
+    resize: none;
+
+    /* Remove borda e o contorno padrão ao focar */
+    border: none;
+    outline: none;
+
+    /* Garante a quebra de linha automática do texto */
+    white-space: pre-wrap;
+    word-break: break-word;
+
+    /* Oculta barras de rolagem feias */
+    overflow: hidden;
+
+    /* Expansão automática nativa (suportada em navegadores modernos baseados em Chromium) */
+    field-sizing: content;
+
+    /* Tamanho inicial e limite opcional de crescimento */
+    min-height: 40px;
+    max-height: 200px;
+    padding: 20px;
+    width: calc(100% - 40px);
+    border-radius: 10px 10px 0 0;
+    transition: all ease-in-out 0.2s;
+}
+
+
+
+.modalCardTitulo:focus {
+    background-color: #202020;
+}
+
+.modalButtonLine {
+    display: flex;
+    background-color: #303030;
+    width: 100%;
+    height: 50px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.modalDescricaoDiv {
+    min-height: 0;
+    padding: 20px 30px;
+    flex: 2;
+    width: 100%;
+    height: 450px;
+    /* height: 100%; */
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+
+.modalDescricao {
+    color: white;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    width: 100%;
+    margin-bottom: 50px
+}
+
+.textDescricao {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+
+    /* Trava o redimensionamento manual pelo usuário */
+    resize: none;
+
+    /* Remove borda e o contorno padrão ao focar */
+    border: 2px solid #202020;
+    outline: none;
+
+    /* Garante a quebra de linha automática do texto */
+    white-space: pre-wrap;
+    word-break: break-word;
+
+    /* Oculta barras de rolagem feias */
+    overflow: hidden;
+
+    /* Expansão automática nativa (suportada em navegadores modernos baseados em Chromium) */
+    field-sizing: content;
+
+    /* Tamanho inicial e limite opcional de crescimento */
+    min-height: 40px;
+    max-height: 350px;
+    padding: 20px 0 20px 20px;
+    width: 100%;
+    border-radius: 10px;
+    transition: all ease-in-out 0.2s;
+
+    overflow-y: auto;
+
+}
+
+.textDescricao:focus {
+    background-color: #202020;
+}
+
+
+.modalBodyContent {
+    display: flex;
+    height: 100%
+}
+
+.comentariosDiv {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    width: 100%;
+    max-width: 350px;
+    max-height: 450px;
+    min-height: 100px;
+}
+
+.botaoConfirma {
+    background-color: #003055;
+    color: white;
+
+}
+
+.botaoCancela {
+
+    color: white;
+    background-color: transparent;
+}
+
+.botaoModal {
+    padding: 10px;
+    font-size: 16px;
+    /* border: 2px solid #303030; */
+    border: none;
+    border-radius: 5px;
+    transition: all 0.2s ease
+}
+
+.botaoModal:hover {
+
+    cursor: pointer;
+    background-color: #005090;
+}
+
+.botoesDescricao {
+    gap: 10px
+}
+
+.etiquetasDiv {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    /* overflow-y: hidden; */
+    white-space: nowrap;
+    /* height: 70px; */
+    gap: 8px;
+    align-items: center;
+    min-width: 0;
+    margin-bottom: 20px
+}
+
+/* 
+.etiquetasDiv {
+    display: flex;
+    overflow-wrap: break-word;
+    flex-wrap: wrap;
+    white-space: wrap;
+   
+    height: 60px
+} */
+
+.etqModal {
+    color: white;
+    width: max-content;
+    margin: 10px 0;
+    border-radius: 5px;
+    padding: 10px;
+    flex-shrink: 0;
+    /* border: 2px solid #202020 */
+}
+
+.botaoAddEtiq {
+    color: white;
+    width: max-content;
+    margin: 10px;
+    border-radius: 5px;
+    padding: 10px;
+    width: 40px;
+    border: solid 2px #404040;
+    justify-content: center;
+    display: grid;
+    position: relative;
+    background-color: transparent;
+    transition: all 0.1s ease;
+
+}
+
+.botaoAddEtiq:hover {
+    cursor: pointer;
+    background-color: #606060;
+}
+
+.menuEtqDiv {
+    /* position: absolute; */
+    top: 10px;
+     /* right: -200px; */
+    width: 250px; 
+    display: flex;
+    flex-direction: column;
+    align-content: start;
+    justify-items: center;  
+    background-color: #202020;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .2);
+    /* width: 400px; */
+    /* padding: 6px; */
+    z-index: 1000;
+    /* gap: 10px; */
+    color:white;
+
+
+    /* min-height: 0; */
+}
+
+/* .corpoEtqMenu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow-y: auto;
+    max-height: 450px;
+    overflow-x:hidden;
+    flex:1;
+    width: 230px
+} */
+.corpoEtqMenu {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-y: auto;
+    max-height: 450px;
+    overflow-x: hidden;
+    flex: 1;
+    width: 230px;
+    min-height: 0;
+}
+
+
+
+
+.etqSelOp {
+    width: 200px;
+    /* margin: 5px; */
+    padding: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 0 5px 5px 0;
+    height:30px
+
+
+}
+
+.caixaEtqSelOp {
+
+    width: 10px;
+    height: 100%;
+    background-color: #399F2E;
+}
+
+.nameEtqSelOp {
+    align-content: center;
+    font-size: 16px;
+    padding-left: 10px;
+    user-select: none;
+    overflow-wrap: break-word;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+
+}
+
+
+.editBtnSelOp {
+    background-color: transparent;
+    border: none;
+    margin: 3px
+}
+
+.etqDivGeral {
+    display: flex;
+    margin: 3px;
+    width: 200px;
+    /* padding: 10px; */
+    /* align-content: top; */
+    justify-content: space-between;
+    border-radius: 5px;
+    height: 40px;
+}
+
+/* .tresPontosDiv {
+    opacity: 0;
+    transition: all 0.1s ease;
+        color: white;
+    border-radius: 5px;
+    justify-content: center;
+    display: grid;
+    position: relative;
+}
+
+.colunaHeader:hover .tresPontosDiv {
+    opacity: 1;
+} */
+
+.btnFecharMenu {
+    display: flex;
+    cursor: pointer;
+    font-weight: bold;
+    /* background-color: #E50914; */
+    background-color: #399F2E;
+    color: white;
+    /* padding: 5px 10px; */
+    align-items: center;
+    justify-content: center;
+    border: none;
+    height: 35px;
+    width: 35px;
+    border-radius: 3px;
+    margin: 10px
+}
+
+.addEtqBtn {
+    display: flex;
+    cursor: pointer;
+    background-color: #66B2FF;
+    color: #404040;
+    /* padding: 5px 10px; */
+    align-items: center;
+    justify-content: center;
+    border: none;
+    height: 35px;
+    width: 35px;
+    border-radius: 3px;
+    margin: 10px
+}
+
+
+.menuMoreOptColuna {
+    position: absolute;
+    top: 10px;
+    right: -10px;
+
+    display: grid;
+    flex-direction: column;
+    justify-items: center;
+    background-color: #404040;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .2);
+
+    padding: 6px;
+    z-index: 900;
+    /* gap: 10px */
+    overflow-y: auto;
+
+    max-height: 500px;
+}
+
+.btnCancelarColuna {
+    background-color: #E50914;
+    color: white
+}
+
+.modalConfirmBack {
+    display: grid;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.marcadorEtqDiv {
+    height: 100%;
+    width: 10px;
+    background-color: #399F2E;
+
+}
+
+.contextMenuDiv {
+    position: fixed;
+    background-color: #202020;
+    border-radius: 5px;
+
+
+}
+
+.logDiv {
+    background-color: #202020;
+    padding: 10px;
+    margin: 7px 10px;
+    /* border: 2px solid #505050; */
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 5px 7px rgba(0, 0, 0, 0.5);
+    max-width: 100%;
+    overflow-wrap: break-word;
+
+}
+
+.comentariosContent {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+    /* overflow: scroll; */
+    height: 100%;
+    scroll-behavior: smooth
+}
+
+.card-arrastando {
+    opacity: 0.5;
+    transform: scale(0.97);
+}
+
+.card-placeholder {
+    opacity: 0.50;
+    transform: scale(0.98);
+}
+
+.inputLogin {
+    padding: 7px 5px 7px 5px;
+    margin-bottom: 20px;
+    border-radius: 7px;
+    width: calc(100% - 10px);
+    border: solid 2px #bbbbbb;
+    outline: none;
+    transition: border ease 0.2s;
+}
+
+.inputLogin:focus {
+    border: solid 2px #0079bf;
+}
+
+.inputSimples {
+    background-color: #303030;
+    border: 1px solid #505050;
+    /* margin: 10px; */
+    border-radius: 5px;
+    outline: none;
+    padding: 5px 5px 5px 10px;
+    font-size: 16px;
+    color: white
+}
+
+.divColGeral {
+    padding: 5px 0;
+    border-radius: 5px;
+    border: 1px solid #505050;
+    background-color: #303030;
+    color: white;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
+    width: 100%
+}
+
+.divColGeral:hover {
+    background-color: #505050;
+}
+
+.listaUsuarios {
+    color: white;
+    justify-content: left;
+    flex-direction: column;
+    display: flex;
+
+}
+
+
+.checklistDiv {
+    border-radius: 10px;
+    /* border: 1px solid #505050; */
+    /* justify-content: space-between; */
+    background-color: #202020
+}
+
+.checklistNomeDiv {
+    color: white;
+    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.checklistNome {
+    color: white;
+    font-size: 18px;
+    /* justify-content: space-between; */
+}
+
+.textoCheckbox {
+    display: flex;
+    color: white;
+    align-items: center;
+}
+
+.checkDiv {
+    display: flex;
+    align-items: center;
+    color: white;
+    border: 1px solid #505050;
+    border-radius: 10px;
+    padding: 10px;
+    /* margin: 10px 0; */
+    background-color: #101010;
+
+    /* font-size:20px */
+}
+
+.checkbox {
+    height: 20px;
+    width: 20px;
+    margin: 5px
+}
+
+
+.checklistDiv {
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #606060;
+    border-radius: 6px;
+}
+
+.checklistNomeDiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.checklistNome {
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+.bodyCheck,
+.tarefasEdicao {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.checkDiv,
+.linhaTarefaEdicao {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.textoCheckbox {
+    overflow-wrap: anywhere;
+}
+
+.tarefaConcluida {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.linhaTarefaEdicao input {
+    flex: 1;
+    min-width: 0;
+}
+
+.botaoExcluirTarefa {
+    background-color: #E50914;
+    border: none;
+    padding: 6px 10px;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.botoesEdicaoChecklist {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+
+.numberTicket {
+    font-style: italic;
+    padding:5px
+}
+
+.numberModalTicket {
+    background-color: #303030;
+    padding: 5px 10px;
+    border-radius: 10px 0 5px 0;
+    color: white;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.cardInfoDiv {
+    color: white;
+    justify-content: right;
+    display: flex;
+    background-color: #202020;
+    border-radius: 10px 10px 0 0
+}
+
+.faixaInfosPrimarias {
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
